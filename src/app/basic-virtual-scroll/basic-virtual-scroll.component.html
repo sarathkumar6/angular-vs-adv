@@ -1,0 +1,6 @@
+<cdk-virtual-scroll-viewport itemSize="100">
+  <div class="spacer"></div>
+  <ng-container *cdkVirtualFor="let product of products;"> 
+    <app-product-card class="product-card" [product]="product"></app-product-card> 
+  </ng-container>
+</cdk-virtual-scroll-viewport>

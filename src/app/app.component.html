@@ -1,0 +1,58 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">{{title}}</h1>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav color="accent" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"  [opened]="mobileQuery.matches ? 'false' : 'true'">
+      <mat-nav-list>
+        <div class="nav-link-group">
+          <h2 matSubheader>Home</h2>
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active-list-item">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>dashboard</mat-icon>
+            Dashboard
+          </a>
+          <mat-divider></mat-divider>
+          <h2 matSubheader>Basic Scrolling</h2>
+          <a mat-list-item routerLink="/basic" routerLinkActive="active-list-item">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>list</mat-icon>
+            Scrolling
+          </a>
+          <a mat-list-item routerLink="/basic-pagination" routerLinkActive="active-list-item" class="sub-nav-link">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>view_list</mat-icon>
+            Pagination
+          </a>
+          <a mat-list-item routerLink="/basic-infinite" routerLinkActive="active-list-item" class="sub-nav-link">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>list_alt</mat-icon>
+            Infinite
+          </a>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="nav-link-group">
+          <h2 matSubheader>Virtual Scrolling</h2>
+          <a mat-list-item routerLink="/basicvs" routerLinkActive="active-list-item">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>line_weight</mat-icon>
+            Basic
+          </a>
+          <a mat-list-item routerLink="/aggrid" routerLinkActive="active-list-item">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>view_module</mat-icon>
+            AG-Grid
+          </a>
+           <a mat-list-item routerLink="/advancedscroll" routerLinkActive="active-list-item" class="sub-nav-link">
+            <mat-icon class="collapse-icon vcenter" mat-list-icon>list_alt</mat-icon>
+            Advanced
+          </a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
